@@ -34,10 +34,49 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/admin-lte/dist/img",
+                "output": "assets/img"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@fortawesome/fontawesome-free/webfonts",
+                "output": "assets/webfonts"
               }
             ],
-            "styles": [
+            "styles": [   
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "public/plugins/fontawesome-free/css/all.min.css",
+              "public/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css",
+              "public/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
+              "public/plugins/jqvmap/jqvmap.min.css",
+              "public/dist/css/adminlte.min.css",
+              "public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+              "public/plugins/daterangepicker/daterangepicker.css",
+              "public/plugins/summernote/summernote-bs4.min.css",
               "src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "public/plugins/jquery/jquery.min.js",
+              "public/plugins/jquery-ui/jquery-ui.min.js",
+              "public/plugins/bootstrap/js/bootstrap.bundle.min.js",
+              "public/plugins/chart.js/Chart.min.js",
+              "public/plugins/sparklines/sparkline.js",
+              "public/plugins/jqvmap/jquery.vmap.min.js",
+              "public/plugins/jqvmap/maps/jquery.vmap.usa.js",
+              "public/plugins/jquery-knob/jquery.knob.min.js",
+              "public/plugins/moment/moment.min.js",
+              "public/plugins/daterangepicker/daterangepicker.js",
+              "public/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js",
+              "public/plugins/summernote/summernote-bs4.min.js",
+              "public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
+              "public/dist/js/adminlte.js",
+              "public/dist/js/demo.js",
+              "public/dist/js/pages/dashboard.js"
             ]
           },
           "configurations": {
@@ -95,6 +134,9 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/admin-lte/dist/css/adminlte.min.css",
               "src/styles.scss"
             ]
           }
