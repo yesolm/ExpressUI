@@ -2,9 +2,10 @@ import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } fr
 import Stepper from 'bs-stepper';
 
 @Component({
-  selector: 'app-create-patient',
-  templateUrl: './create-patient.component.html',
-  styleUrls: ['./create-patient.component.css']
+    selector: 'app-create-patient',
+    templateUrl: './create-patient.component.html',
+    styleUrls: ['./create-patient.component.css'],
+    standalone: false
 })
 export class CreatePatientComponent implements OnInit,AfterViewInit {
   @ViewChild('patientStepper', {static: false})

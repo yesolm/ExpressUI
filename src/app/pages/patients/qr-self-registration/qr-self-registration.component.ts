@@ -4,9 +4,10 @@ import { QrcodeService } from 'src/app/services/qrcode.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-qr-self-registration',
-  templateUrl: './qr-self-registration.component.html',
-  styleUrls: ['./qr-self-registration.component.css']
+    selector: 'app-qr-self-registration',
+    templateUrl: './qr-self-registration.component.html',
+    styleUrls: ['./qr-self-registration.component.css'],
+    standalone: false
 })
 export class QrSelfRegistrationComponent implements OnInit {
 

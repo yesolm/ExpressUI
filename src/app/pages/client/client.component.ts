@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ClientService } from 'src/app/services/client.service';
 
 @Component({
-  selector: 'app-clients',
-  templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+    selector: 'app-clients',
+    templateUrl: './client.component.html',
+    styleUrls: ['./client.component.css'],
+    standalone: false
 })
 export class ClientComponent {
   clients: any[] = [];

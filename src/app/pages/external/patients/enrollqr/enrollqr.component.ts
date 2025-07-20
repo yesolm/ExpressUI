@@ -4,9 +4,10 @@ import { ModalService } from 'src/app/services/modal.service';
 import { PatientsService } from 'src/app/services/patients.service';
 
 @Component({
-  selector: 'app-enrollqr',
-  templateUrl: './enrollqr.component.html',
-  styleUrls: ['./enrollqr.component.css']
+    selector: 'app-enrollqr',
+    templateUrl: './enrollqr.component.html',
+    styleUrls: ['./enrollqr.component.css'],
+    standalone: false
 })
 export class EnrollqrComponent  implements OnInit {
   model: any = {};
