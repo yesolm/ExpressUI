@@ -5,7 +5,7 @@ import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
     selector: 'app-login',
-    templateUrl: './login.component.html',
+    templateUrl: './login.html',
     styleUrls: ['./login.component.css'],
     standalone: false
 })

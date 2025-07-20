@@ -5,7 +5,7 @@ import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
     selector: 'app-profile',
-    templateUrl: './profile.component.html',
+    templateUrl: './profile.html',
     styleUrls: ['./profile.component.css'],
     standalone: false
 })

@@ -3,7 +3,7 @@ declare var $: any;
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
+    templateUrl: './app.html',
     styleUrls: ['./app.component.css'],
     standalone: false
 })

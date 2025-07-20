@@ -3,7 +3,7 @@ import Stepper from 'bs-stepper';
 
 @Component({
     selector: 'app-create-patient',
-    templateUrl: './create-patient.component.html',
+    templateUrl: './create-patient.html',
     styleUrls: ['./create-patient.component.css'],
     standalone: false
 })

@@ -5,7 +5,7 @@ import { PatientsService } from 'src/app/services/patients.service';
 
 @Component({
     selector: 'app-enrollqr',
-    templateUrl: './enrollqr.component.html',
+    templateUrl: './enrollqr.html',
     styleUrls: ['./enrollqr.component.css'],
     standalone: false
 })

@@ -5,7 +5,7 @@ import { UserService } from 'src/app/services/user.service';
 
 @Component({
     selector: 'app-qr-self-registration',
-    templateUrl: './qr-self-registration.component.html',
+    templateUrl: './qr-self-registration.html',
     styleUrls: ['./qr-self-registration.component.css'],
     standalone: false
 })

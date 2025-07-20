@@ -3,7 +3,7 @@ import { ClientService } from 'src/app/services/client.service';
 
 @Component({
     selector: 'app-clients',
-    templateUrl: './client.component.html',
+    templateUrl: './client.html',
     styleUrls: ['./client.component.css'],
     standalone: false
 })

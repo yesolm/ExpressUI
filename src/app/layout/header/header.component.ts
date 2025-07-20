@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-header',
-    templateUrl: './header.component.html',
+    templateUrl: './header.html',
     styleUrls: ['./header.component.css'],
     standalone: false
 })

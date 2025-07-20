@@ -3,7 +3,7 @@ declare function initVisitorsChart(): any;
 
 @Component({
     selector: 'app-dashboard',
-    templateUrl: './dashboard.component.html',
+    templateUrl: './dashboard.html',
     styleUrls: ['./dashboard.component.css'],
     standalone: false
 })
