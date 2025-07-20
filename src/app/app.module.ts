@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserModule ,} from '@angular/platform-browser';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { AuthService } from './services/auth.service';
@@ -29,55 +29,50 @@ import { EnrollqrComponent } from './pages/external/patients/enrollqr/enrollqr.c
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SpinnerInterceptor } from './interceptor/spinner.interceptor';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    SidebarComponent,
-    MainLayoutComponent,
-    DashboardComponent,
-    LoginComponent,
-    AccountLayoutComponent,
-    ClientComponent,
-    CreatePatientComponent,
-    UsersComponent,
-    ProfileComponent,
-    SearchComponent,
-    EnrollqrComponent
-  ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    FormsModule,  
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NgxSpinnerModule.forRoot() ,    
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: () => {
-          return localStorage.getItem('access_token');
+@NgModule({ declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        SidebarComponent,
+        MainLayoutComponent,
+        DashboardComponent,
+        LoginComponent,
+        AccountLayoutComponent,
+        ClientComponent,
+        CreatePatientComponent,
+        UsersComponent,
+        ProfileComponent,
+        SearchComponent,
+        EnrollqrComponent
+    ],
+    bootstrap: [AppComponent], imports: [AppRoutingModule,
+        BrowserModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        NgxSpinnerModule.forRoot(),
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: () => {
+                    return localStorage.getItem('access_token');
+                },
+                allowedDomains: ['localhost:4200'],
+                disallowedRoutes: ['localhost:4200/api/auth']
+            }
+        }),
+        SweetAlert2Module.forRoot()], providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: SpinnerInterceptor,
+            multi: true,
         },
-        allowedDomains: ['localhost:4200'],
-        disallowedRoutes: ['localhost:4200/api/auth']
-      }
-    }),
-    SweetAlert2Module.forRoot()
-  ],
-  providers: [
-     {
-        provide: HTTP_INTERCEPTORS,
-        useClass: SpinnerInterceptor,
-        multi: true,    
-     },
-     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true,    
-      },
-      {provide: Window, useValue: window},
-      AuthService,
-      AuthGuard],
-      bootstrap: [AppComponent]
-})
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true,
+        },
+        { provide: Window, useValue: window },
+        AuthService,
+        AuthGuard,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
