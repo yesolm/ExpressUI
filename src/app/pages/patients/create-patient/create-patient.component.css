@@ -1,0 +1,16 @@
+.row{
+    margin-bottom: 50px;
+}
+.patient-gender-radio div{
+    margin-right:50px;
+}
+.patient-gender-radio input {
+    margin-right:10px;
+}
+.active .bs-stepper-circle {
+    background-color: orange;
+}
+.active 
+.bs-stepper-label  {
+    color: orange;
+}

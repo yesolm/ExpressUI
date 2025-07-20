@@ -1,0 +1,141 @@
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Profile</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">User Profile</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+  
+              <!-- Profile Image -->
+              <div class="card card-secondary card-outline">
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle"
+                         src="../../../assets/img/user2-160x160.jpg"
+                         alt="User profile picture">
+                  </div>
+  
+                  <h3 class="profile-username text-center"> {{userModel.firstName}} {{userModel.lastName}}</h3>
+  
+                  <p class="text-muted text-center">{{userModel.client}} </p>
+  
+                  <ul class="list-group list-group-unbordered mb-3">
+                    <li class="list-group-item">
+                      <b>Email:</b> <span class=""> {{userModel.email}} 
+                        <i *ngIf = "userModel.emailConfirmed" class="badge bg-success float-right">Confirmed</i>
+                        <i *ngIf = "!userModel.emailConfirmed" class="badge bg-danger float-right">Not confirmed</i>                       
+                      </span>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Phone Number:</b> <span class=""> {{userModel.phoneNumber}} 
+                        <i *ngIf = "userModel.phoneNumber && userModel.phoneConfirmed" class="badge bg-success float-right">Confirmed</i>
+                        <i *ngIf = "userModel.phoneNumber && !userModel.phoneConfirmed" class="badge bg-danger float-right">Not confirmed</i>                       
+                      </span>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Two Factor Authentication:</b> <span class=""> 
+                        <i *ngIf = "userModel.twoFactorEnabled" class="badge bg-success float-right">Enabled</i>
+                        <i *ngIf = "!userModel.twoFactorEnabled" class="badge bg-danger float-right">Disabled</i>                       
+                      </span>
+                    </li>
+                  </ul>
+  
+                  <a href="#" class="btn btn-secondary btn-block"><b>Follow</b></a>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+  
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+              <div class="card card-secondary card-outline card-tabs">
+                <div class="card-header p-0 pt-1 border-bottom-0">
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" href="#updateProfile" data-toggle="pill">Update Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#updatePassword" data-toggle="pill">Update Password</a></li>
+                    <li class="nav-item"><a disabled class="nav-link" href="#settings" data-toggle="pill">Enable Two Factor Authentication</a></li>
+                  </ul>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="updateProfile">
+                      <form (ngSubmit)="updateProfile()" class="form-horizontal">
+                        <div class="form-group row">
+                          <label for="inputName" class="col-sm-2 col-form-label">First Name</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" maxlength="50" placeholder="First Name"  [(ngModel)]="userModel.firstName"  name="firstName">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputName" class="col-sm-2 col-form-label">Middle Name</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" maxlength="50" placeholder="First Name"  [(ngModel)]="userModel.middleName"  name="middleName">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputName" class="col-sm-2 col-form-label">Last Name</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" maxlength="100" placeholder="First Name" [(ngModel)]="userModel.lastName" name="lastName">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                          <div class="col-sm-10">
+                            <input type="email" disabled class="form-control" placeholder="Email"  [(ngModel)]="userModel.email" name="email">
+                          </div>
+                        </div>      
+                        <div class="form-group row">
+                          <label for="inputEmail" class="col-sm-2 col-form-label">Phone</label>
+                          <div class="col-sm-10">
+                            <input type="tel"  class="form-control" placeholder="Phone Number"  [(ngModel)]="userModel.phoneNumber" name="phoneNumber">
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <button type="submit" class="btn btn-secondary float-right">Update</button>
+                       </div>  
+                      </form>
+                    </div>
+                    <div class="tab-pane" id="updatePassword">
+                      <form (ngSubmit)="updateProfile()" class="form-horizontal">
+                          <div class="form-group row">
+                            <label for="inputName" class="col-sm-2 col-form-label">Old Password</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" maxlength="50" placeholder="Old Password"  [(ngModel)]="changePasswordModel.oldPassword"  name="oldPassword">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="inputName" class="col-sm-2 col-form-label">New Password</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" maxlength="50" placeholder="New Password"  [(ngModel)]="changePasswordModel.newPassword"  name="newPassword">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="inputName" class="col-sm-2 col-form-label">Confirm Password</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" maxlength="100" placeholder="Confirm Password" [(ngModel)]="changePasswordModel.confirmPassword" name="confirmPassword">
+                            </div>
+                        </div>
+                      </form>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+        </div>
+      </section>

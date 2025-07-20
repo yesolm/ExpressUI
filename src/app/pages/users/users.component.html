@@ -1,0 +1,50 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Users</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">DataTables</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">                    
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table  class="table table-bordered table-hover">
+                            <thead>
+                                <tr >
+                                    <th>First Name</th>
+                                    <th>Middle Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Client</th>
+                                    <th>Roles</th>
+                                </tr>
+                            </thead>
+                            <tbody>                         
+                                <tr *ngFor="let user of users">
+                                    <td>{{user.firstName}}</td>
+                                    <td>{{user.middleName}}</td>
+                                    <td>{{user.lastName}}</td>
+                                    <td>{{user.email}}</td>
+                                    <td>{{user.client}}</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

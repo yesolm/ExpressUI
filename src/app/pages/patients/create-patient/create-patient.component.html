@@ -1,0 +1,157 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+          
+            <div class="col-sm-12">
+                <ol class="breadcrumb ">
+                    <h4>Add a new patient</h4>
+                </ol>
+            </div>            
+        </div>
+    </div>
+</section>
+<div class="col-12">
+    <div #patientStepper class="bs-stepper">
+      <div class="bs-stepper-header">
+        <div class="step" data-target="#patient-info">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">1</span>
+            <span class="bs-stepper-label">Personal Information</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#guardian-info">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">2</span>
+            <span class="bs-stepper-label">Guardian information</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#contact-info">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">3</span>
+            <span class="bs-stepper-label">Contact information</span>
+          </button>
+        </div>
+      </div>
+      <div class="bs-stepper-content">       
+        <div id="patient-info" class="content">
+            <div class="card">                                            
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label asp-for="FirstName">First Name</label>
+                            <input asp-for="FirstName" class="form-control" autocomplete="firstname" aria-required="true" placeholder="First Name" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="col-6">
+                            <label asp-for="MiddleName">Middle Name</label>
+                            <input asp-for="MiddleName" class="form-control" autocomplete="middlename" aria-required="true" placeholder="Middle Name" />
+                            <span asp-validation-for="MiddleName" class="text-danger"></span>
+                        </div>
+                     </div>
+                     <div class="row">  
+                         <div class="col-6">
+                            <label asp-for="LastName">Last Name</label>
+                            <input asp-for="LastName" class="form-control" autocomplete="lastname" aria-required="true" placeholder="Last Name" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    
+                        <div class="col-md-6">
+                           <label asp-for="DateOfBirth">Date Of Birth</label>
+                            <div class="input-group date" id="dob" data-target-input="nearest">
+                            <input asp-for="DateOfBirth" type="text" class="form-control datetimepicker-input" data-target="#dob" placeholder="MM/DD/YYYY"/>
+                            <div class="input-group-append" data-target="#dob" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                            </div>
+                           <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Gender">Gender</label>
+                            <div class="patient-gender-radio form-group clearfix">
+                                <div class="icheck-secondary d-inline">
+                                     <input type="radio" id="GenderMale" asp-for="Gender" name="r1" value="@Gender.Male">
+                                     <label for="GenderMale">Male</label>
+                                </div>
+                                <div class="icheck-secondary d-inline">
+                                    <input type="radio" id="GenderFemale" asp-for="Gender" name="r1" value="@Gender.Female">
+                                    <label for="GenderFemale">Female</label>
+                                </div>
+                                <div class="icheck-secondary d-inline">
+                                    <input type="radio" id="GenderUnknown" asp-for="Gender" name="r1" value="@Gender.Unknown">
+                                    <label for="GenderUnknown">Unknown</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="MaritalStatus">Maritial Status</label>
+                            <select class="form-control" asp-items="@Html.GetEnumSelectList<MaritalStatus>()" asp-for="MaritalStatus">
+                            </select>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>                                
+                     
+                </div>
+                <div class="card-footer">
+                    <button type="submit"  (click)="next()" class="btn btn-secondary float-right">Next</button>
+                </div>
+           </div>
+        </div>
+        <div id="guardian-info" class="content">
+            <div class="card ">                                            
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="GuardianFirstName">Guardian First Name</label>
+                            <input asp-for="GuardianFirstName" class="form-control" autocomplete="firstname" aria-required="true" placeholder="GuardianFirst Name" />
+                            <span asp-validation-for="GuardianFirstName" class="text-danger"></span>
+                        </div>                                  
+                        <div class="col-md-6">
+                            <label asp-for="GuardianLastName">Guardian Last Name</label>
+                            <input asp-for="GuardianLastName" class="form-control" autocomplete="lastname" aria-required="true" placeholder="Guardian Last Name" />
+                            <span asp-validation-for="GuardianLastName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit"  (click)="previous()" class="btn btn-secondary float-left">Previous</button>
+                    <button type="submit" (click)="next()" class="btn btn-secondary float-right">Next</button>
+                 </div>
+            </div>  
+        </div>  
+        <div id="contact-info" class="content">
+            <div class="card ">                                            
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="TelephoneNumber">Telephone Number</label>
+                            <input asp-for="TelephoneNumber" class="form-control" autocomplete="telephone" aria-required="true" placeholder="Telephone Number" />
+                            <span asp-validation-for="TelephoneNumber" class="text-danger"></span>
+                        </div>                                  
+                        <div class="col-md-6">
+                            <label asp-for="Fax">Fax</label>
+                            <input asp-for="Fax" class="form-control" autocomplete="fax" aria-required="true" placeholder="Fax" />
+                            <span asp-validation-for="Fax" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Email">Email Address</label>
+                            <input asp-for="Email" class="form-control" autocomplete="email" aria-required="true" placeholder="Email Address" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            <div class="card-footer">
+                <button type="submit"  (click)="previous()" class="btn btn-secondary float-left">Previous</button>
+                <button type="submit" (click)="next()" class="btn btn-secondary float-right">Next</button>
+             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
