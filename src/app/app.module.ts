@@ -6,7 +6,7 @@ import { BrowserModule ,} from '@angular/platform-browser';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -59,7 +59,7 @@ import { SpinnerInterceptor } from './interceptor/spinner.interceptor';
                 disallowedRoutes: ['localhost:4200/api/auth']
             }
         }),
-        SweetAlert2Module.forRoot()], providers: [
+        ], providers: [
         {
             provide: HTTP_INTERCEPTORS,
             useClass: SpinnerInterceptor,
